@@ -1,0 +1,11 @@
+main > .container {
+  padding: 60px 15px 0;
+}
+
+.show-borders {
+  border: #000000 solid 2px;
+}
+
+nav {
+  color: white;
+}
