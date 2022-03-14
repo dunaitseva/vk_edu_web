@@ -46,7 +46,7 @@
 
                 <!-- Userblock authorized-->
                 <div class="d-flex">
-                    <img src="../static/img/bootstarp_logo.svg" alt="Avatar" width="70" height="70">
+                    <img src="../static/img/common_avatar.png" alt="Avatar" width="70" height="70">
 
                     <div class="container">
                         <div class="row">
@@ -58,7 +58,7 @@
                         <div class="row mt-1">
                             <!-- Settings btn -->
                             <div class="col">
-                                <form method="get">
+                                <form method="get" action="login.html">
                                     <input type="hidden" id="SettingParams" name="SettingParams"
                                            value="current_usr_name">
                                     <button class="btn btn-outline-success" type="submit">Settings</button>
@@ -67,7 +67,7 @@
 
                             <!-- Log out btn -->
                             <div class="col">
-                                <form method="get">
+                                <form method="get" action="#">
                                     <input type="hidden" id="LogOut" name="LogOut"
                                            value="yes">
                                     <button class="btn btn-outline-danger" type="submit">Log out</button>
@@ -94,7 +94,7 @@
 
                 <!--                            &lt;!&ndash; Log out btn &ndash;&gt;-->
                 <!--                            <div class="col">-->
-                <!--                                <form method="get">-->
+                <!--                                <form method="get" action="signup.html">-->
                 <!--                                    <input type="hidden" id="Register" name="Register"-->
                 <!--                                           value="yes">-->
                 <!--                                    <button class="btn btn-outline-danger" type="submit">Register</button>-->
@@ -116,33 +116,207 @@
 <main class="flex-shrink-0">
     <div class="container">
 
-        <div class="mt-5">
-            <span class="fs-1 pe-5">New questions</span>
-            <span>
-                <a href="#">hot questions</a>
-            </span>
-        </div>
-
         <div class="row mt-3">
-            <!--            Page dependent content-->
+            <!-- Questions-->
             <div class="col-9">
+                <!-- Title -->
+                <div class="mt-4 mb-2">
+                    <span class="fs-1 pe-5">New questions</span>
+                    <span>
+                        <a class="fs-5" href="#" style="text-decoration: none;">Hot questions</a>
+                    </span>
+                </div>
 
-                <!--                Card sample -->
-                <div class="card">
-                    <div class="card-header">
-                        Featured
+                <!-- Card sample -->
+                <div class="card mb-2">
+                    <!-- Question -->
+                    <div class="card-header  fs-4 text-center">
+                        <a href="question.html" class="question-title">How can I make my container compatible with boost::range?</a>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="row">
+                            <!-- Likes and answers counters -->
+                            <div class="col-2 text-end">
+                                <form class="m-1">
+                                    <input type="hidden">
+                                    <button class="button-likes" type="submit">12 Likes</button>
+                                </form>
+
+                                <form class="m-1">
+                                    <input type="hidden">
+                                    <button class="button-answers" type="submit">3 Answers</button>
+                                </form>
+                            </div>
+
+                            <!-- Question main part -->
+                            <div class="col-10">
+                                <!-- Text -->
+                                <div class="row p-1">
+                                    I'm trying to use Boost Asio to make some code that talks to a remote system over
+                                    UDP. The remote system in question is a bit of a pain in that once you connect to it
+                                    once, if you close the connection ...
+                                </div>
+                                <div class="row">
+                                    <!-- Tags -->
+                                    <div class="col-8">
+                                        <a href="tag.html" class="tag">TAG</a>
+                                        <a href="tag.html" class="tag">TATAGG</a>
+                                        <a href="tag.html" class="tag">TAG</a>
+                                        <a href="tag.html" class="tag">TATAGTAGG</a>
+                                        <a href="tag.html" class="tag">TTAGAG</a>
+                                    </div>
+                                    <!-- User's information -->
+                                    <div class="col-4">
+                                        <img src="../static/img/common_avatar.png" alt="Avatar" width="50">
+                                        <a href="user.html" class="member-miniature">CURRENT NAME</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
+
+                </div>
+                <div class="card mb-2">
+                    <!-- Question -->
+                    <div class="card-header  fs-4 text-center">
+                        <a href="question.html" class="question-title">How can I make my container compatible with boost::range?</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Likes and answers counters -->
+                            <div class="col-2 text-end">
+                                <form class="m-1">
+                                    <input type="hidden">
+                                    <button class="button-likes" type="submit">12 Likes</button>
+                                </form>
+
+                                <form class="m-1">
+                                    <input type="hidden">
+                                    <button class="button-answers" type="submit">3 Answers</button>
+                                </form>
+                            </div>
+
+                            <!-- Question main part -->
+                            <div class="col-10">
+                                <!-- Text -->
+                                <div class="row p-1">
+                                    I'm trying to use Boost Asio to make some code that talks to a remote system over
+                                    UDP. The remote system in question is a bit of a pain in that once you connect to it
+                                    once, if you close the connection ...
+                                </div>
+                                <div class="row">
+                                    <!-- Tags -->
+                                    <div class="col-8">
+                                        <a href="tag.html" class="tag">TAG</a>
+                                        <a href="tag.html" class="tag">TATAGG</a>
+                                        <a href="tag.html" class="tag">TAG</a>
+                                        <a href="tag.html" class="tag">TATAGTAGG</a>
+                                        <a href="tag.html" class="tag">TTAGAG</a>
+                                    </div>
+                                    <!-- User's information -->
+                                    <div class="col-4">
+                                        <img src="../static/img/common_avatar.png" alt="Avatar" width="50">
+                                        <a href="user.html" class="member-miniature">CURRENT NAME</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card mb-2">
+                    <!-- Question -->
+                    <div class="card-header  fs-4 text-center">
+                        <a href="question.html" class="question-title">How can I make my container compatible with boost::range?</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Likes and answers counters -->
+                            <div class="col-2 text-end">
+                                <form class="m-1">
+                                    <input type="hidden">
+                                    <button class="button-likes" type="submit">12 Likes</button>
+                                </form>
+
+                                <form class="m-1">
+                                    <input type="hidden">
+                                    <button class="button-answers" type="submit">3 Answers</button>
+                                </form>
+                            </div>
+
+                            <!-- Question main part -->
+                            <div class="col-10">
+                                <!-- Text -->
+                                <div class="row p-1">
+                                    I'm trying to use Boost Asio to make some code that talks to a remote system over
+                                    UDP. The remote system in question is a bit of a pain in that once you connect to it
+                                    once, if you close the connection ...
+                                </div>
+                                <div class="row">
+                                    <!-- Tags -->
+                                    <div class="col-8">
+                                        <a href="tag.html" class="tag">TAG</a>
+                                        <a href="tag.html" class="tag">TATAGG</a>
+                                        <a href="tag.html" class="tag">TAG</a>
+                                        <a href="tag.html" class="tag">TATAGTAGG</a>
+                                        <a href="tag.html" class="tag">TTAGAG</a>
+                                    </div>
+                                    <!-- User's information -->
+                                    <div class="col-4">
+                                        <img src="../static/img/common_avatar.png" alt="Avatar" width="50">
+                                        <a href="user.html" class="member-miniature">CURRENT NAME</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
 
-            <!--                PAGE DEPENDENT SIDE MENU-->
+            <!-- PAGE DEPENDENT SIDE MENU-->
             <div class="col-3">
+                <div class="mt-4 mb-2">
+                    <span class="fs-1 pe-5">Popular tags</span>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a href="#" class="tag">TAG</a>
+                        <a href="#" class="tag">TAGTAGTAG</a>
+                        <a href="#" class="tag">TATAGG</a>
+                        <a href="#" class="tag">TTAGTAGAG</a>
+                        <a href="#" class="tag">TTAGTAGTAGAG</a>
+                        <a href="#" class="tag">TTAGAG</a>
+                        <a href="#" class="tag">TAG</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mt-4 mb-2">
+                        <span class="fs-2 pe-5">Best members</span>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <img src="../static/img/common_avatar.png" alt="Avatar" width="50">
+                            <a href="#" class="member-miniature">CURRENT NAME1</a>
+                        </div>
+                        <div>
+                            <img src="../static/img/common_avatar.png" alt="Avatar" width="50">
+                            <a href="#" class="member-miniature">CURRENT NAME2</a>
+                        </div>
+                        <div>
+                            <img src="../static/img/common_avatar.png" alt="Avatar" width="50">
+                            <a href="#" class="member-miniature">CURRENT NAME3</a>
+                        </div>
+                        <div>
+                            <img src="../static/img/common_avatar.png" alt="Avatar" width="50">
+                            <a href="#" class="member-miniature">CURRENT NAME4</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -151,7 +325,7 @@
 
 <footer class="footer mt-auto py-3 bg-light">
     <div class="container">
-        <span class="text-muted">Place sticky footer content here.</span>
+        <span class="text-muted">Very useful information (probably i should delete footer?)</span>
     </div>
 </footer>
 

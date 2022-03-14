@@ -1,11 +1,43 @@
 main > .container {
-  padding: 60px 15px 0;
+    padding: 60px 15px 0;
 }
 
 .show-borders {
-  border: #000000 solid 2px;
+    border: #000000 solid 2px;
 }
 
 nav {
-  color: white;
+    color: white;
+}
+
+.button-likes {
+    background-color: rgb(255, 137, 128);
+    border-radius: 3px;
+    border: none;
+    padding: 8px 12px;
+}
+
+.button-answers {
+    background-color: #7cd783;
+    border-radius: 3px;
+    border: none;
+    padding: 8px 12px;
+}
+
+a:link.tag, a:visited.tag {
+    background-color: #74d5ff;
+    border-radius: 3px;
+    padding: 3px 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px;
+}
+
+.question-title {
+    text-decoration: none;
+}
+
+.member-miniature {
+    text-decoration: none;
 }
