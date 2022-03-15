@@ -86,3 +86,7 @@ a:link.tag, a:visited.tag {
     padding-top: 20px;
     margin-top: 20px;
 }
+
+.error-message {
+    color: #bb2d3b;
+}
