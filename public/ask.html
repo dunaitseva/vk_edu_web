@@ -32,9 +32,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="ask.html">New question</a>
                     </li>
-                    <!--                                    <li class="nav-item">-->
-                    <!--                                        <a class="nav-link disabled">THIRD LINK</a>-->
-                    <!--                                    </li>-->
                 </ul>
 
                 <!-- Search-->
@@ -120,10 +117,71 @@
     <div class="container">
         <div class="row" style="margin-top: 50px;">
             <div class="col-9">
-                PAGE DEPENDENT CONTENT
+                <!-- Title -->
+                <div class="mt-4 mb-2">
+                    <span class="fs-1 pe-5">New question</span>
+                </div>
+                <form class="w-75" method="get">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="Title">Title</span>
+                        <input type="text" class="form-control" placeholder="Question title here" aria-label="Title"
+                               aria-describedby="Title" name="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="questionDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="questionDescription" rows="3" name="description"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="Tags">Tags</span>
+                        <input type="text" class="form-control" placeholder="C++, boost, asio" aria-label="Tags"
+                               aria-describedby="Tags" name="tags">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-3 ps-5 pe-5">ASK!</button>
+                    </div>
+                </form>
             </div>
+            <!-- Tags and best members -->
             <div class="col-3">
-                PAGE DEPENDENT SIDE MENU
+                <div class="mt-4 mb-2">
+                    <span class="fs-1 pe-5">Popular tags</span>
+                </div>
+                <!-- Tags -->
+                <div class="row">
+                    <div class="col">
+                        <a href="#" class="tag">TAG</a>
+                        <a href="#" class="tag">TAGTAGTAG</a>
+                        <a href="#" class="tag">TATAGG</a>
+                        <a href="#" class="tag">TTAGTAGAG</a>
+                        <a href="#" class="tag">TTAGTAGTAGAG</a>
+                        <a href="#" class="tag">TTAGAG</a>
+                        <a href="#" class="tag">TAG</a>
+                    </div>
+                </div>
+                <!-- Best members -->
+                <div class="row">
+                    <div class="mt-4 mb-2">
+                        <span class="fs-2 pe-5">Best members</span>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <img src="../static/img/common_avatar.png" alt="Avatar" width="50">
+                            <a href="#" class="member-miniature">CURRENT NAME1</a>
+                        </div>
+                        <div>
+                            <img src="../static/img/common_avatar.png" alt="Avatar" width="50">
+                            <a href="#" class="member-miniature">CURRENT NAME2</a>
+                        </div>
+                        <div>
+                            <img src="../static/img/common_avatar.png" alt="Avatar" width="50">
+                            <a href="#" class="member-miniature">CURRENT NAME3</a>
+                        </div>
+                        <div>
+                            <img src="../static/img/common_avatar.png" alt="Avatar" width="50">
+                            <a href="#" class="member-miniature">CURRENT NAME4</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
