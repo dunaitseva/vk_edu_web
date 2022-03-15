@@ -118,54 +118,70 @@
 <!-- Begin page content -->
 <main class="flex-shrink-0">
     <div class="container">
-
-        <div class="row mt-3">
-            <!-- Questions-->
+        <div class="row" style="margin-top: 50px;">
             <div class="col-9">
-                <!-- Title -->
                 <div class="mt-4 mb-2">
-                    <span class="fs-1 pe-5">New questions</span>
-                    <span>
-                        <a class="fs-5" href="#" style="text-decoration: none;">Hot questions</a>
+                    <span class="fs-2 pe-5">
+                        Exception unhandled when using -fintelfpga
                     </span>
                 </div>
 
-                <!-- Card sample -->
-                <div class="card mb-2">
-                    <!-- Question -->
-                    <div class="card-header  fs-4 text-center">
-                        <a href="question.html" class="question-title">
-                            How can I make my container compatible with boost::range?
-                        </a>
+                <div class="row question-field">
+                    <div class="row">
+                        <div class="col">
+                            <p>
+                                I am using Microsoft Visual Studio 2019 as the development environment for my DPC++
+                                application. My
+                                target platform is FPGA emulation. When I did the following: project
+                                properties->configuration
+                                properties->DPC++->General->Enable FPGA workflows->Yes, The program throws an
+                                exception. I have
+                                included the codes below. I am not sure how to eliminate the exception. I need your
+                                help. Thank you.
+                            </p>
+
+                            <p>
+                                Any help greatly appreciated! :-)
+                            </p>
+                        </div>
                     </div>
+                    <div class="row">
+                        <!-- Tags -->
+                        <div class="col-8">
+                            <a href="tag.html" class="tag">TAG</a>
+                            <a href="tag.html" class="tag">TATAGG</a>
+                            <a href="tag.html" class="tag">TAG</a>
+                            <a href="tag.html" class="tag">TATAGTAGG</a>
+                            <a href="tag.html" class="tag">TTAGAG</a>
+                        </div>
+                        <!-- User's information -->
+                        <div class="col-4">
+                            <img src="../static/img/common_avatar.png" alt="Avatar" width="50" height="50">
+                            <a href="user.html" class="member-miniature">CURRENT NAME</a>
+                        </div>
+                    </div>
+                    <!--                    </div>-->
+                </div>
+
+                <!-- Answer card -->
+                <div class="card mt-2">
+                    <!-- Question -->
                     <div class="card-body">
                         <div class="row">
-                            <!-- Likes and answers counters -->
-                            <div class="col-2 text-end">
-                                <form class="mb-1">
-                                    <input type="hidden">
-                                    <button class="button-likes" type="submit">12 Likes</button>
-                                </form>
-
-                                <span class="answers-counter" type="submit">3 Answers</span>
-                            </div>
-
-                            <!-- Question main part -->
-                            <div class="col-10">
-                                <!-- Text -->
+                            <div class="col ps-4">
                                 <div class="row p-1">
-                                    I'm trying to use Boost Asio to make some code that talks to a remote system over
-                                    UDP. The remote system in question is a bit of a pain in that once you connect to it
-                                    once, if you close the connection ...
+                                    <p>
+                                        I'm trying to use Boost Asio to make some code that talks to a remote system
+                                        over UDP. The remote system in question is a bit of a pain in that once you
+                                        connect to it once, if you close the connection ...
+                                    </p>
                                 </div>
                                 <div class="row">
-                                    <!-- Tags -->
                                     <div class="col-8">
-                                        <a href="tag.html" class="tag">TAG</a>
-                                        <a href="tag.html" class="tag">TATAGG</a>
-                                        <a href="tag.html" class="tag">TAG</a>
-                                        <a href="tag.html" class="tag">TATAGTAGG</a>
-                                        <a href="tag.html" class="tag">TTAGAG</a>
+                                        <form class="mb-1">
+                                            <input type="hidden">
+                                            <button class="correct-active" type="submit"> Correct</button>
+                                        </form>
                                     </div>
                                     <!-- User's information -->
                                     <div class="col-4">
@@ -179,40 +195,24 @@
                     </div>
 
                 </div>
-                <div class="card mb-2">
+                <div class="card mt-2">
                     <!-- Question -->
-                    <div class="card-header  fs-4 text-center">
-                        <a href="question.html" class="question-title">How can I make my container compatible with
-                            boost::range?</a>
-                    </div>
                     <div class="card-body">
                         <div class="row">
-                            <!-- Likes and answers counters -->
-                            <div class="col-2 text-end">
-                                <form class="mb-1">
-                                    <input type="hidden">
-                                    <button class="button-likes" type="submit">12 Likes</button>
-                                </form>
-
-                                <span class="answers-counter" type="submit">3 Answers</span>
-                            </div>
-
-                            <!-- Question main part -->
-                            <div class="col-10">
-                                <!-- Text -->
+                            <div class="col ps-4">
                                 <div class="row p-1">
-                                    I'm trying to use Boost Asio to make some code that talks to a remote system over
-                                    UDP. The remote system in question is a bit of a pain in that once you connect to it
-                                    once, if you close the connection ...
+                                    <p>
+                                        I'm trying to use Boost Asio to make some code that talks to a remote system
+                                        over UDP. The remote system in question is a bit of a pain in that once you
+                                        connect to it once, if you close the connection ...
+                                    </p>
                                 </div>
                                 <div class="row">
-                                    <!-- Tags -->
                                     <div class="col-8">
-                                        <a href="tag.html" class="tag">TAG</a>
-                                        <a href="tag.html" class="tag">TATAGG</a>
-                                        <a href="tag.html" class="tag">TAG</a>
-                                        <a href="tag.html" class="tag">TATAGTAGG</a>
-                                        <a href="tag.html" class="tag">TTAGAG</a>
+                                        <form class="mb-1">
+                                            <input type="hidden">
+                                            <button class="correct-disable" type="submit"> Correct</button>
+                                        </form>
                                     </div>
                                     <!-- User's information -->
                                     <div class="col-4">
@@ -226,40 +226,24 @@
                     </div>
 
                 </div>
-                <div class="card mb-2">
+                <div class="card mt-2">
                     <!-- Question -->
-                    <div class="card-header  fs-4 text-center">
-                        <a href="question.html" class="question-title">How can I make my container compatible with
-                            boost::range?</a>
-                    </div>
                     <div class="card-body">
                         <div class="row">
-                            <!-- Likes and answers counters -->
-                            <div class="col-2 text-end">
-                                <form class="mb-1">
-                                    <input type="hidden">
-                                    <button class="button-likes" type="submit">12 Likes</button>
-                                </form>
-
-                                <span class="answers-counter" type="submit">3 Answers</span>
-                            </div>
-
-                            <!-- Question main part -->
-                            <div class="col-10">
-                                <!-- Text -->
+                            <div class="col ps-4">
                                 <div class="row p-1">
-                                    I'm trying to use Boost Asio to make some code that talks to a remote system over
-                                    UDP. The remote system in question is a bit of a pain in that once you connect to it
-                                    once, if you close the connection ...
+                                    <p>
+                                        I'm trying to use Boost Asio to make some code that talks to a remote system
+                                        over UDP. The remote system in question is a bit of a pain in that once you
+                                        connect to it once, if you close the connection ...
+                                    </p>
                                 </div>
                                 <div class="row">
-                                    <!-- Tags -->
                                     <div class="col-8">
-                                        <a href="tag.html" class="tag">TAG</a>
-                                        <a href="tag.html" class="tag">TATAGG</a>
-                                        <a href="tag.html" class="tag">TAG</a>
-                                        <a href="tag.html" class="tag">TATAGTAGG</a>
-                                        <a href="tag.html" class="tag">TTAGAG</a>
+                                        <form class="mb-1">
+                                            <input type="hidden">
+                                            <button class="correct-disable" type="submit"> Correct</button>
+                                        </form>
                                     </div>
                                     <!-- User's information -->
                                     <div class="col-4">
@@ -274,6 +258,17 @@
 
                 </div>
 
+                <!-- Answer field -->
+                <form method="get" class="answer-field">
+                    <div class="mb-3">
+                        <label for="answer" class="form-label">Answer</label>
+                        <textarea class="form-control" id="answer" rows="3" name="answer">
+                        </textarea>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-3 ps-5 pe-5">Answer</button>
+                    </div>
+                </form>
             </div>
 
             <!-- Tags and best members -->

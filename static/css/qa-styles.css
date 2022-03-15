@@ -17,6 +17,16 @@ nav {
     padding: 8px 12px;
 }
 
+.button-likes:before {
+    content: "";
+    background-image: url("../img/like.png");
+    background-size: 100% 100%;
+    display: inline-block;
+
+    height: 15px;
+    width: 15px;
+}
+
 .answers-counter {
     background-color: #7cd783;
     border-radius: 3px;
@@ -40,4 +50,39 @@ a:link.tag, a:visited.tag {
 
 .member-miniature {
     text-decoration: none;
+}
+
+.question-field {
+    border-bottom: solid 1px #d5cbcb;
+    padding-bottom: 20px;
+}
+
+.correct-active {
+    background-color: #7cd783;
+    border-radius: 3px;
+    border: none;
+    padding: 8px 12px;
+}
+
+.correct-active:before {
+    content: "";
+    background-image: url("../img/check.png");
+    background-size: 100% 100%;
+    display: inline-block;
+
+    height: 15px;
+    width: 15px;
+}
+
+.correct-disable {
+    background-color: #c4c4c4;
+    border-radius: 3px;
+    border: none;
+    padding: 8px 12px;
+}
+
+.answer-field {
+    border-top: solid 1px #d5cbcb;
+    padding-top: 20px;
+    margin-top: 20px;
 }
