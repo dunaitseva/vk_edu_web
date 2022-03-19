@@ -51,14 +51,14 @@
                     <div class="container">
                         <div class="row">
                             <!-- Name section -->
-                            <div class="col"><span> CURRETN NAME </span></div>
+                            <div class="col"><span> CURRENT NAME </span></div>
                         </div>
 
                         <!-- Buttons -->
                         <div class="row mt-1">
                             <!-- Settings btn -->
                             <div class="col">
-                                <form method="get" action="login.html">
+                                <form method="get" action="settings.html">
                                     <input type="hidden" id="SettingParams" name="SettingParams"
                                            value="current_usr_name">
                                     <button class="btn btn-outline-success" type="submit">Settings</button>
@@ -120,16 +120,18 @@
                 <!-- Title -->
                 <div class="mt-4 mb-2">
                     <span class="fs-1 pe-5">New question</span>
+                    <span class="fs-5 error-message"> Error message! </span>
                 </div>
                 <form class="w-75" method="get">
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="Title">Title</span>
                         <input type="text" class="form-control" placeholder="Question title here" aria-label="Title"
-                               aria-describedby="Title" name="title">
+                               aria-describedby="Title" name="title" required>
                     </div>
                     <div class="mb-3">
                         <label for="questionDescription" class="form-label">Description</label>
-                        <textarea class="form-control" id="questionDescription" rows="3" name="description"></textarea>
+                        <textarea class="form-control" id="questionDescription" rows="3" name="description"
+                                  maxlength="1000" required></textarea>
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="Tags">Tags</span>
@@ -189,7 +191,7 @@
 
 <footer class="footer mt-auto py-3 bg-light">
     <div class="container">
-        <span class="text-muted">Very useful information (probably i should delete footer?)</span>
+        <span class="text-muted">GitHub: <a class="ps-3 pe-4" href="https://github.com/dunaitseva"> dunaitseva </a> (C) 2022</span>
     </div>
 </footer>
 
