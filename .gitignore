@@ -128,4 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .idea/*
-questions/db.sqlite3
+./db.sqlite3
