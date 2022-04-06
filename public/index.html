@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <title>Questions</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/qa-styles.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+</head>
+<body class="d-flex flex-column h-100">
+
+<header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Questions</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">All Questions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ask.html">New question</a>
+                    </li>
+                </ul>
+
+                <!-- Search-->
+                <form class="d-flex me-5 me-auto">
+                    <input type="hidden">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+
+                <!--                Placeholder-->
+                <div class="me-auto"></div>
+
+                <!-- Userblock authorized-->
+                <div class="d-flex">
+                    <img src="../static/img/common_avatar.png" alt="Avatar" width="70" height="70">
+
+                    <div class="container">
+                        <div class="row">
+                            <!-- Name section -->
+                            <div class="col"><span> CURRENT NAME </span></div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="row mt-1">
+                            <!-- Settings btn -->
+                            <div class="col">
+                                <form method="get" action="settings.html">
+                                    <input type="hidden" id="SettingParams" name="SettingParams"
+                                           value="current_usr_name">
+                                    <button class="btn btn-outline-success" type="submit">Settings</button>
+                                </form>
+                            </div>
+
+                            <!-- Log out btn -->
+                            <div class="col">
+                                <form method="get" action="#">
+                                    <input type="hidden" id="LogOut" name="LogOut"
+                                           value="yes">
+                                    <button class="btn btn-outline-danger" type="submit">Log out</button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Userblock unauthorized-->
+                <!--                <div class="d-flex m-2">-->
+                <!--                    <div class="container">-->
+                <!--                        &lt;!&ndash; Buttons &ndash;&gt;-->
+                <!--                        <div class="row mt-1">-->
+                <!--                            &lt;!&ndash; Settings btn &ndash;&gt;-->
+                <!--                            <div class="col">-->
+                <!--                                <form method="get" action="login.html">-->
+                <!--                                    <button class="btn btn-outline-success" type="submit">Login</button>-->
+                <!--                                </form>-->
+                <!--                            </div>-->
+
+                <!--                            &lt;!&ndash; Log out btn &ndash;&gt;-->
+                <!--                            <div class="col">-->
+                <!--                                <form method="get" action="signup.html">-->
+                <!--                                    <input type="hidden" id="Register" name="Register"-->
+                <!--                                           value="yes">-->
+                <!--                                    <button class="btn btn-outline-danger" type="submit">Register</button>-->
+                <!--                                </form>-->
+                <!--                            </div>-->
+
+                <!--                        </div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+
+            </div>
+        </div>
+
+
+    </nav>
+</header>
+
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+    <div class="container">
+
+        <div class="row mt-3">
+            <!-- Questions-->
+            <div class="col-9">
+                <!-- Title -->
+                <div class="mt-4 mb-2">
+                    <span class="fs-1 pe-5">New questions</span>
+                    <span>
+                        <a class="fs-5" href="#" style="text-decoration: none;">Hot questions</a>
+                    </span>
+                </div>
+
+                <!-- Card sample -->
+                <div class="card mb-2">
+                    <!-- Question -->
+                    <div class="card-header  fs-4 text-center">
+                        <a href="question.html" class="question-title">
+                            How can I make my container compatible with boost::range?
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Likes and answers counters -->
+                            <div class="col-2 text-end">
+                                <form class="mb-1">
+                                    <input type="hidden">
+                                    <button class="button-likes" type="submit">12 Likes</button>
+                                </form>
+
+                                <span class="answers-counter" type="submit">3 Answers</span>
+                            </div>
+
+                            <!-- Question main part -->
+                            <div class="col-10">
+                                <!-- Text -->
+                                <div class="row p-1">
+                                    I'm trying to use Boost Asio to make some code that talks to a remote system over
+                                    UDP. The remote system in question is a bit of a pain in that once you connect to it
+                                    once, if you close the connection ...
+                                </div>
+                                <div class="row">
+                                    <!-- Tags -->
+                                    <div class="col-8">
+                                        <a href="tag.html" class="tag">TAG</a>
+                                        <a href="tag.html" class="tag">TATAGG</a>
+                                        <a href="tag.html" class="tag">TAG</a>
+                                        <a href="tag.html" class="tag">TATAGTAGG</a>
+                                        <a href="tag.html" class="tag">TTAGAG</a>
+                                    </div>
+                                    <!-- User's information -->
+                                    <div class="col-4">
+                                        <img src="../static/img/common_avatar.png" alt="Avatar" width="50" height="50">
+                                        <a href="user.html" class="member-miniature">CURRENT NAME</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card mb-2">
+                    <!-- Question -->
+                    <div class="card-header  fs-4 text-center">
+                        <a href="question.html" class="question-title">How can I make my container compatible with
+                            boost::range?</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Likes and answers counters -->
+                            <div class="col-2 text-end">
+                                <form class="mb-1">
+                                    <input type="hidden">
+                                    <button class="button-likes" type="submit">12 Likes</button>
+                                </form>
+
+                                <span class="answers-counter" type="submit">3 Answers</span>
+                            </div>
+
+                            <!-- Question main part -->
+                            <div class="col-10">
+                                <!-- Text -->
+                                <div class="row p-1">
+                                    I'm trying to use Boost Asio to make some code that talks to a remote system over
+                                    UDP. The remote system in question is a bit of a pain in that once you connect to it
+                                    once, if you close the connection ...
+                                </div>
+                                <div class="row">
+                                    <!-- Tags -->
+                                    <div class="col-8">
+                                        <a href="tag.html" class="tag">TAG</a>
+                                        <a href="tag.html" class="tag">TATAGG</a>
+                                        <a href="tag.html" class="tag">TAG</a>
+                                        <a href="tag.html" class="tag">TATAGTAGG</a>
+                                        <a href="tag.html" class="tag">TTAGAG</a>
+                                    </div>
+                                    <!-- User's information -->
+                                    <div class="col-4">
+                                        <img src="../static/img/common_avatar.png" alt="Avatar" width="50" height="50">
+                                        <a href="user.html" class="member-miniature">CURRENT NAME</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card mb-2">
+                    <!-- Question -->
+                    <div class="card-header  fs-4 text-center">
+                        <a href="question.html" class="question-title">How can I make my container compatible with
+                            boost::range?</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <!-- Likes and answers counters -->
+                            <div class="col-2 text-end">
+                                <form class="mb-1">
+                                    <input type="hidden">
+                                    <button class="button-likes" type="submit">12 Likes</button>
+                                </form>
+
+                                <span class="answers-counter" type="submit">3 Answers</span>
+                            </div>
+
+                            <!-- Question main part -->
+                            <div class="col-10">
+                                <!-- Text -->
+                                <div class="row p-1">
+                                    I'm trying to use Boost Asio to make some code that talks to a remote system over
+                                    UDP. The remote system in question is a bit of a pain in that once you connect to it
+                                    once, if you close the connection ...
+                                </div>
+                                <div class="row">
+                                    <!-- Tags -->
+                                    <div class="col-8">
+                                        <a href="tag.html" class="tag">TAG</a>
+                                        <a href="tag.html" class="tag">TATAGG</a>
+                                        <a href="tag.html" class="tag">TAG</a>
+                                        <a href="tag.html" class="tag">TATAGTAGG</a>
+                                        <a href="tag.html" class="tag">TTAGAG</a>
+                                    </div>
+                                    <!-- User's information -->
+                                    <div class="col-4">
+                                        <img src="../static/img/common_avatar.png" alt="Avatar" width="50" height="50">
+                                        <a href="user.html" class="member-miniature">CURRENT NAME</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <nav aria-label="Questions navigation" class="mt-5">
+                    <ul class="pagination">
+                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+
+            <!-- Tags and best members -->
+            <div class="col-3">
+                <div class="mt-4 mb-2">
+                    <span class="fs-1 pe-5">Popular tags</span>
+                </div>
+                <!-- Tags -->
+                <div class="row">
+                    <div class="col">
+                        <a href="#" class="tag">TAG</a>
+                        <a href="#" class="tag">TAGTAGTAG</a>
+                        <a href="#" class="tag">TATAGG</a>
+                        <a href="#" class="tag">TTAGTAGAG</a>
+                        <a href="#" class="tag">TTAGTAGTAGAG</a>
+                        <a href="#" class="tag">TTAGAG</a>
+                        <a href="#" class="tag">TAG</a>
+                    </div>
+                </div>
+                <!-- Best members -->
+                <div class="row">
+                    <div class="mt-4 mb-2">
+                        <span class="fs-2 pe-5">Best members</span>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <img src="../static/img/common_avatar.png" alt="Avatar" width="50">
+                            <a href="#" class="member-miniature">CURRENT NAME1</a>
+                        </div>
+                        <div>
+                            <img src="../static/img/common_avatar.png" alt="Avatar" width="50">
+                            <a href="#" class="member-miniature">CURRENT NAME2</a>
+                        </div>
+                        <div>
+                            <img src="../static/img/common_avatar.png" alt="Avatar" width="50">
+                            <a href="#" class="member-miniature">CURRENT NAME3</a>
+                        </div>
+                        <div>
+                            <img src="../static/img/common_avatar.png" alt="Avatar" width="50">
+                            <a href="#" class="member-miniature">CURRENT NAME4</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+<footer class="footer mt-auto py-3 bg-light">
+    <div class="container">
+        <span class="text-muted">GitHub: <a class="ps-3 pe-4" href="https://github.com/dunaitseva"> dunaitseva </a> (C) 2022</span>
+    </div>
+</footer>
+
+</body>
+</html>
