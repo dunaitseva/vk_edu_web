@@ -1,0 +1,64 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="mt-4 mb-2">
+        <span class="fs-2 pe-5">
+            Exception unhandled when using -fintelfpga {{ q_id }}
+        </span>
+    </div>
+
+    <div class="row question-field">
+        <div class="row">
+            <div class="col">
+                <p>
+                    I am using Microsoft Visual Studio 2019 as the development environment for my DPC++
+                    application. My
+                    target platform is FPGA emulation. When I did the following: project
+                    properties->configuration
+                    properties->DPC++->General->Enable FPGA workflows->Yes, The program throws an
+                    exception. I have
+                    included the codes below. I am not sure how to eliminate the exception. I need your
+                    help. Thank you.
+                </p>
+
+                <p>
+                    Any help greatly appreciated! :-)
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Tags -->
+            <div class="col-8">
+                {% for tag in tags %}
+                    <a href="{% url 'tag-view' tag %}" class="tag">{{ tag }}</a>
+                {% endfor %}
+            </div>
+            <!-- User's information -->
+            <div class="col-4">
+                <img src="{% static 'img/common_avatar.png' %}" alt="Avatar" width="50" height="50">
+                CURRENT NAME
+            </div>
+        </div>
+        <!--                    </div>-->
+    </div>
+
+    {% for answer_id in answers %}
+        {% include "include/question-answer-card.html" %}
+    {% endfor %}
+
+    {% with pagination_obj=answers %}
+        {% include "include/pagination.html" %}
+    {% endwith %}
+
+    <!-- Answer field -->
+    <form method="post" class="answer-field">
+        <div class="mb-3">
+            <label for="answer" class="form-label">Answer</label>
+            <textarea class="form-control" id="answer" rows="3" name="answer" maxlength="1000"></textarea>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3 ps-5 pe-5">Answer</button>
+        </div>
+    </form>
+{% endblock %}
