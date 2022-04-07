@@ -5,7 +5,7 @@
         <span class="fs-1 pe-5">Hot questions</span>
     </div>
 
-    {% for question_id in questions %}
+    {% for question in questions.object_list %}
         {% include "include/question-card.html" %}
     {% endfor %}
 
