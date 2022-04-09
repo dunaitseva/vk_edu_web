@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from questions.settings import MEDIA_ROOT
 
 
 # Create your models here.
@@ -9,8 +10,8 @@ class ProfileManager(models.Manager):
 
 
 class Profile(models.Model):
-    avatar = models.ImageField()
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    avatar = models.ImageField(default='common_avatar.png')
 
     objects = ProfileManager()
 

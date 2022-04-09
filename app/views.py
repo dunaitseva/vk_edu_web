@@ -3,7 +3,6 @@ from django.http import HttpRequest, HttpResponse
 from django.views import View
 from django.core.paginator import Paginator
 from .models import Question, Tag, Like, Answer, Profile
-from questions.settings import MEDIA_ROOT
 
 
 class DefaultQuestionPageView(View):
@@ -29,7 +28,7 @@ class DefaultQuestionPageView(View):
                 'tags': Tag.objects.question_tags(question.id),
                 'likes_counter': Like.objects.count_question_likes(question.id),
                 'answers_counter': Answer.objects.count_question_answers(question.id),
-                'author_avatar': f'/{MEDIA_ROOT}{Profile.objects.get_avatar(question.author.id)}'
+                'author_avatar': f'{Profile.objects.get_avatar(question.author.id).url}'
             }
             result_query.append(item)
         return result_query
