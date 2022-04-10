@@ -35,7 +35,6 @@ def questions_plug_loader(*args, **kwargs):
 
 
 class DefaultQuestionContainPageView(View):
-    tmp_questions_amount = 23
     QUESTIONS_PER_PAGE = 5
     template = 'base.html'
     question_objects_template_naming = 'questions'
@@ -75,20 +74,14 @@ class DefaultQuestionContainPageView(View):
 
 
 class IndexView(DefaultQuestionContainPageView):
-    tmp_questions_amount = 23
-    QUESTIONS_PER_PAGE = 5
     template = 'index.html'
 
 
 class HotQuestionsView(DefaultQuestionContainPageView):
-    tmp_questions_amount = 12
-    QUESTIONS_PER_PAGE = 5
     template = 'hot.html'
 
 
 class TagQuestionsView(DefaultQuestionContainPageView):
-    tmp_questions_amount = 12
-    QUESTIONS_PER_PAGE = 5
     template = 'tag.html'
 
     def get_view_specific_data(self, request, *args, **kwargs):
@@ -129,7 +122,6 @@ def question_get_plug(q_id):
 
 
 class ConcreteQuestionView(View):
-    tmp_answers_amount = 8
     ANSWERS_PER_PAGE = 5
 
     def __init__(self, **kwargs):
