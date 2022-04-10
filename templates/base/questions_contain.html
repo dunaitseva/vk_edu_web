@@ -6,7 +6,7 @@
         {% endblock %}
     </div>
 
-    {% for question_id in questions %}
+    {% for question in questions.object_list %}
         {% include "include/question-card.html" %}
     {% endfor %}
 

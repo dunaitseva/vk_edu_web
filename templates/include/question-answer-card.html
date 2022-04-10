@@ -6,22 +6,28 @@
             <div class="col ps-4">
                 <div class="row p-1">
                     <p>
-                        I'm trying to use Boost Asio to make some code that talks to a remote system
-                        over UDP. The remote system in question is a bit of a pain in that once you
-                        connect to it once, if you close the connection ...
+                        {{ answer.answer.text }}
                     </p>
                 </div>
                 <div class="row">
                     <div class="col-8">
                         <form class="mb-1">
                             <input type="hidden">
-                            <button class="correct-active" type="submit"> Correct</button>
+                            {% if answer.answer.correct %}
+                                <button class="correct-active" type="submit"> Correct</button>
+                            {% else %}
+                                <button class="correct-disable" type="submit"> Correct</button>
+                            {% endif %}
                         </form>
                     </div>
                     <!-- User's information -->
                     <div class="col-4">
-                        <img src="{% static 'img/common_avatar.png' %}" alt="Avatar" width="50" height="50">
-                        CURRENT NAME
+                        {% if answer.author_avatar == None %}
+                            <img src="{% static 'img/common_avatar.png' %}" alt="Avatar" width="50" height="50">
+                        {% else %}
+                            <img src="{% static answer.author_avatar.url %}" alt="Avatar" width="50" height="50">
+                        {% endif %}
+                        {{ answer.answer.author }}
                     </div>
                 </div>
             </div>

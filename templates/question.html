@@ -4,7 +4,7 @@
 {% block content %}
     <div class="mt-4 mb-2">
         <span class="fs-2 pe-5">
-            Exception unhandled when using -fintelfpga {{ q_id }}
+            {{ question.question.title }}
         </span>
     </div>
 
@@ -12,38 +12,30 @@
         <div class="row">
             <div class="col">
                 <p>
-                    I am using Microsoft Visual Studio 2019 as the development environment for my DPC++
-                    application. My
-                    target platform is FPGA emulation. When I did the following: project
-                    properties->configuration
-                    properties->DPC++->General->Enable FPGA workflows->Yes, The program throws an
-                    exception. I have
-                    included the codes below. I am not sure how to eliminate the exception. I need your
-                    help. Thank you.
-                </p>
-
-                <p>
-                    Any help greatly appreciated! :-)
+                    {{ question.question.text }}
                 </p>
             </div>
         </div>
         <div class="row">
             <!-- Tags -->
             <div class="col-8">
-                {% for tag in tags %}
+                {% for tag in question.tags %}
                     <a href="{% url 'tag-view' tag %}" class="tag">{{ tag }}</a>
                 {% endfor %}
             </div>
-            <!-- User's information -->
             <div class="col-4">
-                <img src="{% static 'img/common_avatar.png' %}" alt="Avatar" width="50" height="50">
-                CURRENT NAME
+                {% if question.author_avatar == None %}
+                    <img src="{% static 'img/common_avatar.png' %}" alt="Avatar" width="50" height="50">
+                {% else %}
+                    <img src="{% static question.author_avatar.url %}" alt="Avatar" width="50" height="50">
+                {% endif %}
+                {{ question.question.author }}
             </div>
         </div>
         <!--                    </div>-->
     </div>
 
-    {% for answer_id in answers %}
+    {% for answer in answers.object_list %}
         {% include "include/question-answer-card.html" %}
     {% endfor %}
 
