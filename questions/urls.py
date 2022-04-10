@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.IndexView.as_view(), name='index-view'),
     path('hot/', views.HotQuestionsView.as_view(), name='hot-view'),
-    path('question/<int:question_id>', views.QuestionView.as_view(), name='question-view'),
+    path('question/<int:question_id>', views.ConcreteQuestionView.as_view(), name='question-view'),
     path('tag/<str:tag_name>/', views.TagQuestionsView.as_view(), name='tag-view'),
     path('login/', views.LoginView.as_view(), name='login-view'),
     path('signup/', views.RegisterView.as_view(), name='register-view'),

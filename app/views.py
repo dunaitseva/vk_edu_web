@@ -4,7 +4,7 @@ from django.views import View
 from django.core.paginator import Paginator
 
 
-class DefaultQuestionPageView(View):
+class DefaultQuestionContainPageView(View):
     tmp_questions_amount = 23
     QUESTIONS_PER_PAGE = 5
     template = 'base.html'
@@ -17,8 +17,8 @@ class DefaultQuestionPageView(View):
         self.paginator = Paginator(self.questions_objects, self.QUESTIONS_PER_PAGE)
 
     def resolve_pagination(self, page: int):
-        rendering_page = self.paginator.get_page(page)
-        return rendering_page
+        rendering_page_objects = self.paginator.get_page(page)
+        return rendering_page_objects
 
     def prepare_arguments(self, request, *args, **kwargs):
         return {'tags': self.tags}
@@ -35,21 +35,21 @@ class DefaultQuestionPageView(View):
         )
 
 
-class IndexView(DefaultQuestionPageView):
+class IndexView(DefaultQuestionContainPageView):
     tmp_questions_amount = 23
     QUESTIONS_PER_PAGE = 5
     template = 'index.html'
     iterable_objects = 'questions'
 
 
-class HotQuestionsView(DefaultQuestionPageView):
+class HotQuestionsView(DefaultQuestionContainPageView):
     tmp_questions_amount = 12
     QUESTIONS_PER_PAGE = 5
     template = 'hot.html'
     iterable_objects = 'questions'
 
 
-class TagQuestionsView(DefaultQuestionPageView):
+class TagQuestionsView(DefaultQuestionContainPageView):
     tmp_questions_amount = 12
     QUESTIONS_PER_PAGE = 5
     template = 'tag.html'
@@ -59,7 +59,7 @@ class TagQuestionsView(DefaultQuestionPageView):
         return {'tag_name': kwargs.get('tag_name'), 'tags': self.tags}
 
 
-class QuestionView(View):
+class ConcreteQuestionView(View):
     tmp_answers_amount = 8
     ANSWERS_PER_PAGE = 5
     tags = ['C++', 'Python', 'SQL', 'Django', 'Ruby', 'Boost']
