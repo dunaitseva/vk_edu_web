@@ -70,7 +70,6 @@ class TagQuestionsView(DefaultQuestionContainPageView):
 class ConcreteQuestionView(View):
     tmp_answers_amount = 8
     ANSWERS_PER_PAGE = 5
-    tags = ['C++', 'Python', 'SQL', 'Django', 'Ruby', 'Boost']
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -82,7 +81,7 @@ class ConcreteQuestionView(View):
         return rendering_page
 
     def prepare_arguments(self, request, *args, **kwargs):
-        return {'tags': self.tags}
+        return {'tags': get_tags()}
 
     def get(self, request: HttpRequest, question_id) -> HttpResponse:
         page = int(request.GET.get('page', 1))
@@ -93,10 +92,8 @@ class ConcreteQuestionView(View):
 
 
 class LoginView(View):
-    tags = ['C++', 'Python', 'SQL', 'Django', 'Ruby', 'Boost']
-
     def prepare_arguments(self, request, *args, **kwargs):
-        return {'tags': self.tags}
+        return dict()
 
     def get(self, request: HttpRequest) -> HttpResponse:
         return render(request, 'login.html', self.prepare_arguments(request))
@@ -106,10 +103,8 @@ class LoginView(View):
 
 
 class RegisterView(View):
-    tags = ['C++', 'Python', 'SQL', 'Django', 'Ruby', 'Boost']
-
     def prepare_arguments(self, request, *args, **kwargs):
-        return {'tags': self.tags}
+        return dict()
 
     def get(self, request: HttpRequest) -> HttpResponse:
         return render(request, 'register.html', self.prepare_arguments(request))
@@ -119,10 +114,8 @@ class RegisterView(View):
 
 
 class AskView(View):
-    tags = ['C++', 'Python', 'SQL', 'Django', 'Ruby', 'Boost']
-
     def prepare_arguments(self, request, *args, **kwargs):
-        return {'tags': self.tags}
+        return {'tags': get_tags()}
 
     def get(self, request: HttpRequest) -> HttpResponse:
         return render(request, 'ask.html', self.prepare_arguments(request))
@@ -132,10 +125,8 @@ class AskView(View):
 
 
 class SettingsView(View):
-    tags = ['C++', 'Python', 'SQL', 'Django', 'Ruby', 'Boost']
-
     def prepare_arguments(self, request, *args, **kwargs):
-        return {'tags': self.tags}
+        return dict()
 
     def get(self, request: HttpRequest) -> HttpResponse:
         return render(request, 'settings.html', self.prepare_arguments(request))
