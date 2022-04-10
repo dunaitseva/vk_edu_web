@@ -5,13 +5,6 @@ from django.core.paginator import Paginator
 
 
 class DefaultQuestionPageView(View):
-    # In case of current project we have a lot of pages where
-    # logic of viewing is the similar. So I think it's a good idea
-    # to use interface of QuestionPageView in other view classes
-    # with the same logic. As I understand, models is very flexible
-    # instrument, and in final version of this class hierarchy
-    # I want only change the model and some specific logic
-    # of view to change behaviour.
     tmp_questions_amount = 23
     QUESTIONS_PER_PAGE = 5
     template = 'base.html'
@@ -31,8 +24,8 @@ class DefaultQuestionPageView(View):
         return {'tags': self.tags}
 
     def get(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
-        page = int(request.GET.get('page', 1))
-        question_objects = self.resolve_pagination(page)
+        page_number = int(request.GET.get('page', 1))
+        question_objects = self.resolve_pagination(page_number)
         passing_arguments = self.prepare_arguments(request, *args, **kwargs)
         passing_arguments.update({self.iterable_objects: question_objects})
         return render(
