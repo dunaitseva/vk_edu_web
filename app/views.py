@@ -4,12 +4,23 @@ from django.views import View
 from django.core.paginator import Paginator
 
 
+def get_tags():
+    tags = [
+        'C++',
+        'Python',
+        'SQL',
+        'Django',
+        'Ruby',
+        'Boost'
+    ]
+    return tags
+
+
 class DefaultQuestionContainPageView(View):
     tmp_questions_amount = 23
     QUESTIONS_PER_PAGE = 5
     template = 'base.html'
-    iterable_objects = 'cards'
-    tags = ['C++', 'Python', 'SQL', 'Django', 'Ruby', 'Boost']
+    question_objects_template_naming = 'questions'
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -21,13 +32,13 @@ class DefaultQuestionContainPageView(View):
         return rendering_page_objects
 
     def prepare_arguments(self, request, *args, **kwargs):
-        return {'tags': self.tags}
+        return {'tags': get_tags()}
 
     def get(self, request: HttpRequest, *args, **kwargs) -> HttpResponse:
         page_number = int(request.GET.get('page', 1))
         question_objects = self.resolve_pagination(page_number)
         passing_arguments = self.prepare_arguments(request, *args, **kwargs)
-        passing_arguments.update({self.iterable_objects: question_objects})
+        passing_arguments.update({self.question_objects_template_naming: question_objects})
         return render(
             request,
             self.template,
@@ -39,24 +50,21 @@ class IndexView(DefaultQuestionContainPageView):
     tmp_questions_amount = 23
     QUESTIONS_PER_PAGE = 5
     template = 'index.html'
-    iterable_objects = 'questions'
 
 
 class HotQuestionsView(DefaultQuestionContainPageView):
     tmp_questions_amount = 12
     QUESTIONS_PER_PAGE = 5
     template = 'hot.html'
-    iterable_objects = 'questions'
 
 
 class TagQuestionsView(DefaultQuestionContainPageView):
     tmp_questions_amount = 12
     QUESTIONS_PER_PAGE = 5
     template = 'tag.html'
-    iterable_objects = 'questions'
 
     def prepare_arguments(self, request, *args, **kwargs):
-        return {'tag_name': kwargs.get('tag_name'), 'tags': self.tags}
+        return {'tag_name': kwargs.get('tag_name'), 'tags': get_tags()}
 
 
 class ConcreteQuestionView(View):
