@@ -1,0 +1,38 @@
+{% load static %}
+
+<div class="card mt-2">
+    <div class="card-body">
+        <div class="row">
+            <div class="col ps-4">
+                <div class="row p-1">
+                    <p>
+                        {{ answer.answer.text }}
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <form class="mb-1">
+                            <input type="hidden">
+                            {% if answer.answer.correct %}
+                                <button class="correct-active" type="submit"> Correct</button>
+                            {% else %}
+                                <button class="correct-disable" type="submit"> Correct</button>
+                            {% endif %}
+                        </form>
+                    </div>
+                    <!-- User's information -->
+                    <div class="col-4">
+                        {% if answer.author_avatar == None %}
+                            <img src="{% static 'img/common_avatar.png' %}" alt="Avatar" width="50" height="50">
+                        {% else %}
+                            <img src="{% static answer.author_avatar.url %}" alt="Avatar" width="50" height="50">
+                        {% endif %}
+                        {{ answer.answer.author }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

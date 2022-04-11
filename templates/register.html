@@ -1,0 +1,47 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+    <div class="mt-4 mb-2">
+        <span class="fs-2 pe-5">Register</span>
+        <span class="fs-5 error-message"> Error message! </span>
+    </div>
+
+    <form class="w-75" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="Login" class="form-label">Login</label>
+            <input type="text" class="form-control" id="Login">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1"
+                   placeholder="name@example.com">
+        </div>
+
+        <div class="mb-3">
+            <label for="Nick" class="form-label">Nick name</label>
+            <input type="text" class="form-control" id="Nick">
+        </div>
+
+        <div class="mb-3">
+            <label for="Password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="Password">
+        </div>
+
+        <div class="mb-3">
+            <label for="RepeatPassword" class="form-label">Repeat password</label>
+            <input type="password" class="form-control" id="RepeatPassword">
+        </div>
+
+        <div class="mb-3">
+            <label for="Avatar" class="form-label">Avatar</label>
+            <input class="form-control" type="file" id="Avatar">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}

@@ -1,0 +1,51 @@
+{% load static %}
+
+<div class="card mb-2">
+    <!-- Question -->
+    <div class="card-header  fs-4 text-center">
+            <span> {{ question.question.id }} <span>
+            <a href="{% url 'question-view' question.question.id %}" class="question-title">
+                {{ question.question.title }}
+            </a>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <!-- Likes and answers counters -->
+            <div class="col-2 text-end">
+                <form class="mb-1">
+                    <input type="hidden">
+                    <button class="button-likes" type="submit">{{ question.likes_counter }} Likes</button>
+                </form>
+
+                <span class="answers-counter" type="submit">{{ question.answers_counter }} Answers</span>
+            </div>
+
+            <!-- Question main part -->
+            <div class="col-10">
+                <!-- Text -->
+                <div class="row p-1">
+                    {{ question.question.text }}
+                </div>
+                <div class="row">
+                    <!-- Tags -->
+                    <div class="col-8">
+                        {% for tag in question.tags %}
+                            <a href="{% url 'tag-view' tag %}" class="tag">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                    <!-- User's information -->
+                    <div class="col-4">
+                        {% if question.author_avatar == None %}
+                            <img src="{% static 'img/common_avatar.png' %}" alt="Avatar" width="50" height="50">
+                        {% else %}
+                            <img src="{% static question.author_avatar.url %}" alt="Avatar" width="50" height="50">
+                        {% endif %}
+                        {{ question.question.author }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

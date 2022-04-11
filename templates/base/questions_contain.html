@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <div class="mt-4 mb-2">
+        {% block page_title %}
+        {% endblock %}
+    </div>
+
+    {% for question in questions.object_list %}
+        {% include "include/question-card.html" %}
+    {% endfor %}
+
+    {% with pagination_obj=questions %}
+        {% include "include/pagination.html" %}
+    {% endwith %}
+
+{% endblock %}
