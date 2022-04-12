@@ -3,10 +3,9 @@
 <div class="card mb-2">
     <!-- Question -->
     <div class="card-header  fs-4 text-center">
-            <span> {{ question.question.id }} <span>
-            <a href="{% url 'question-view' question.question.id %}" class="question-title">
-                {{ question.question.title }}
-            </a>
+        <a href="{% url 'question-view' question.question.id %}" class="question-title">
+            {{ question.question.title }}
+        </a>
     </div>
     <div class="card-body">
         <div class="row">

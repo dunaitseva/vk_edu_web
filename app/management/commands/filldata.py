@@ -9,13 +9,12 @@ import datetime
 
 
 class Command(BaseCommand):
-    help = 'Test command'
     RANDOM_API_KEY = '78c7df1074544d209e549dc135589056'
     RANDOM_TEXT_APY = 'https://randommer.io/api/Text/LoremIpsum'
     RANDOM_NAME_API = 'https://randommer.io/api/Name'
     PARAGRAPHS_AMOUNT = 1
 
-    SCALE = 5000
+    SCALE = 100
     USERS_NEEDS = 10000 // SCALE
     QUESTIONS_NEEDS = 100000 // SCALE
     ANSWERS_NEEDS = 1000000 // SCALE
@@ -44,15 +43,13 @@ class Command(BaseCommand):
         return r.text.split()
 
     def generate_names_set(self):
-        params = {'nameType': 'fullname', 'quantity': 1000}
+        params = {'nameType': 'fullname', 'quantity': 100}
         r = requests.get(
             self.RANDOM_NAME_API,
             params=params,
             headers={'X-Api-Key': self.RANDOM_API_KEY}
         )
         return r.json()
-
-    used_names = {}
 
     def create_text_by_word_length(self, len):
         result_string = str()
@@ -61,10 +58,8 @@ class Command(BaseCommand):
         return result_string
 
     def create_users_and_ref_profiles(self):
-        def create_user():
-            name_choice = random.choice(self.names_set)
-            while name_choice in self.used_names:
-                name_choice = random.choice(self.names_set)
+        def create_user(user_counter):
+            name_choice = f'{random.choice(self.names_set)}{user_counter}'
             name_split = name_choice.split()
             pwd = f'{random.choice(self.text_dataset)}{random.choice(self.text_dataset)}{random.choice(self.text_dataset)}'
             user_dict_repr = {
@@ -84,7 +79,7 @@ class Command(BaseCommand):
         users_set = []
         profiles_set = []
         for i in range(self.USERS_NEEDS):
-            user = User(**create_user())
+            user = User(**create_user(i))
             user.save()
             users_set.append(user)
             profile = Profile(user=user)
@@ -173,7 +168,6 @@ class Command(BaseCommand):
         Like.objects.bulk_create(likes_set)
 
     def handle(self, *args, **options):
-        self.stdout.write(self.style.SUCCESS('FIRST COMMAND MESSAGE'))
         self.create_users_and_ref_profiles()
         users = User.objects.all()
         self.create_questions(users)
@@ -181,3 +175,4 @@ class Command(BaseCommand):
         self.create_answers(users, questions)
         self.create_tags(questions)
         self.create_likes(users, questions)
+        self.stdout.write(self.style.SUCCESS('SUCCESS'))

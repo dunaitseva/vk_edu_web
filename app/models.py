@@ -92,6 +92,14 @@ class TagManager(models.Manager):
     def question_tags(self, question_id):
         return Tag.objects.filter(question__pk=question_id)
 
+    def get_top_tags(self):
+        TOP_TAGS_AMOUNT = 20
+        tags = Tag.objects \
+            .values('tag_name') \
+            .annotate(total=models.Count('tag_name')) \
+            .order_by('-total')[:TOP_TAGS_AMOUNT]
+        return tags
+
 
 class Tag(models.Model):
     tag_name = models.CharField(max_length=20)
