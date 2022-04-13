@@ -14,7 +14,7 @@ class Command(BaseCommand):
     RANDOM_NAME_API = 'https://randommer.io/api/Name'
     PARAGRAPHS_AMOUNT = 1
 
-    SCALE = 100
+    SCALE = 5000
     USERS_NEEDS = 10000 // SCALE
     QUESTIONS_NEEDS = 100000 // SCALE
     ANSWERS_NEEDS = 1000000 // SCALE
@@ -128,24 +128,21 @@ class Command(BaseCommand):
         Answer.objects.bulk_create(answers_set)
 
     def create_tags(self, questions):
-        def create_tag(question):
-            tag_fields = {
-                'tag_name': random.choice(self.text_dataset),
-                'question': question
-            }
-            return tag_fields
-
-        tags_created_indicate = self.TAGS_NEEDS
-        tags_set = []
-        while tags_created_indicate > 0:
-            one_question_tags_amount = random.randint(0, self.MAX_TAGS)
-            tags_created_indicate -= one_question_tags_amount
-            question = random.choice(questions)
-            for i in range(one_question_tags_amount):
-                tag = Tag(**create_tag(question))
-                tags_set.append(tag)
-
-        Tag.objects.bulk_create(tags_set)
+        questions = questions
+        tag = Tag(tag_name=random.choice(self.text_dataset))
+        tag.save()
+        tag.question.add(random.choice(questions))
+        for i in range(self.TAGS_NEEDS):
+            type_insertion = random.choice([0, 1])
+            if type_insertion == 1:
+                tags = Tag.objects.all()
+                choiced = random.choice(tags)
+                choiced.question.add(random.choice(questions))
+                choiced.save()
+            if type_insertion == 0:
+                tag = Tag(tag_name=random.choice(self.text_dataset))
+                tag.save()
+                tag.question.add(random.choice(questions))
 
     def create_likes(self, users, questions):
         def create_like(user, question):

@@ -6,22 +6,11 @@ from django.core.paginator import Paginator
 from app.models import Question, Tag, Like, Answer, Profile
 
 
-def get_tags():
-    tags = [
-        'C++',
-        'Python',
-        'SQL',
-        'Django',
-        'Ruby',
-        'Boost'
-    ]
-    return tags
-
-
 def load_question_data(question):
+    print(type(question))
     question_item = {
         'question': question,
-        'tags': Tag.objects.question_tags(question.id),
+        'tags': Tag.objects.question_tags(question.pk),
         'likes_counter': Like.objects.count_question_likes(question.id),
         'answers_counter': Answer.objects.count_question_answers(question.id),
         'author_avatar': Profile.objects.get_avatar_url(question.author.id)

@@ -5,10 +5,14 @@ from questions.settings import MEDIA_ROOT
 
 class ProfileManager(models.Manager):
     def get_avatar_url(self, user_id):
-        avatar = Profile.objects.filter(user__pk=user_id).avatar
-        if len(avatar) == 0 or not avatar:
+        avatar = Profile.objects.filter(user__pk=user_id)
+        if len(avatar) == 0:
             return None
-        return avatar[0].url
+
+        if not avatar[0].avatar:
+            return None
+
+        return avatar[0].avatar.url
 
 
 class Profile(models.Model):
@@ -32,11 +36,7 @@ class QuestionsManager(models.Manager):
         return result_query
 
     def get_tagged_question(self, tag_name):
-        tags_objects = Tag.objects.filter(tag_name__exact=tag_name)
-        result_query = []
-        for tags_object in tags_objects:
-            result_query.append(tags_object.question)
-        return result_query
+        return Tag.objects.filter(tag_name__exact=tag_name)[0].question.all()
 
 
 class Question(models.Model):
@@ -89,22 +89,23 @@ class Like(models.Model):
 
 class TagManager(models.Manager):
     def question_tags(self, question_id):
+        # return question.related.all()
         return Tag.objects.filter(question__pk=question_id)
 
     def get_top_tags(self):
         TOP_TAGS_AMOUNT = 20
         tags = Tag.objects \
-            .values('tag_name') \
-            .annotate(total=models.Count('tag_name')) \
-            .order_by('-total')[:TOP_TAGS_AMOUNT]
+                   .values('tag_name') \
+                   .annotate(total=models.Count('question')) \
+                   .order_by('-total')[:TOP_TAGS_AMOUNT]
         return tags
 
 
 class Tag(models.Model):
     tag_name = models.CharField(max_length=20)
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.ManyToManyField(Question)
 
     objects = TagManager()
 
     def __str__(self):
-        return f"{self.tag_name} {self.question.title}"
+        return f"{self.tag_name}"
