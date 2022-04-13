@@ -20,14 +20,14 @@
             <!-- Tags -->
             <div class="col-8">
                 {% for tag in question.tags %}
-                    <a href="{% url 'tag-view' tag %}" class="tag">{{ tag }}</a>
+                    <a href="{% url 'tag-view' tag.tag_name %}" class="tag">{{ tag.tag_name }}</a>
                 {% endfor %}
             </div>
             <div class="col-4">
                 {% if question.author_avatar == None %}
                     <img src="{% static 'img/common_avatar.png' %}" alt="Avatar" width="50" height="50">
                 {% else %}
-                    <img src="{% static question.author_avatar.url %}" alt="Avatar" width="50" height="50">
+                    <img src="{{ question.author_avatar }}" alt="Avatar" width="50" height="50">
                 {% endif %}
                 {{ question.question.author }}
             </div>

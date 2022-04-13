@@ -3,10 +3,9 @@
 <div class="card mb-2">
     <!-- Question -->
     <div class="card-header  fs-4 text-center">
-            <span> {{ question.question.id }} <span>
-            <a href="{% url 'question-view' question.question.id %}" class="question-title">
-                {{ question.question.title }}
-            </a>
+        <a href="{% url 'question-view' question.question.id %}" class="question-title">
+            {{ question.question.title }}
+        </a>
     </div>
     <div class="card-body">
         <div class="row">
@@ -30,7 +29,7 @@
                     <!-- Tags -->
                     <div class="col-8">
                         {% for tag in question.tags %}
-                            <a href="{% url 'tag-view' tag %}" class="tag">{{ tag }}</a>
+                            <a href="{% url 'tag-view' tag.tag_name %}" class="tag">{{ tag.tag_name }}</a>
                         {% endfor %}
                     </div>
                     <!-- User's information -->
@@ -38,7 +37,7 @@
                         {% if question.author_avatar == None %}
                             <img src="{% static 'img/common_avatar.png' %}" alt="Avatar" width="50" height="50">
                         {% else %}
-                            <img src="{% static question.author_avatar.url %}" alt="Avatar" width="50" height="50">
+                            <img src="{{ question.author_avatar }}" alt="Avatar" width="50" height="50">
                         {% endif %}
                         {{ question.question.author }}
                     </div>
