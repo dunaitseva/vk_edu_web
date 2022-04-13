@@ -3,13 +3,12 @@ from django.contrib.auth.models import User
 from questions.settings import MEDIA_ROOT
 
 
-# Create your models here.
 class ProfileManager(models.Manager):
     def get_avatar_url(self, user_id):
-        avatar = Profile.objects.filter(user__pk=user_id)[0].avatar
-        if not avatar:
+        avatar = Profile.objects.filter(user__pk=user_id).avatar
+        if len(avatar) == 0 or not avatar:
             return None
-        return Profile.objects.filter(user__pk=user_id)[0].avatar.url
+        return avatar[0].url
 
 
 class Profile(models.Model):

@@ -10,7 +10,7 @@ import datetime
 
 class Command(BaseCommand):
     RANDOM_API_KEY = '78c7df1074544d209e549dc135589056'
-    RANDOM_TEXT_APY = 'https://randommer.io/api/Text/LoremIpsum'
+    RANDOM_TEXT_API = 'https://randommer.io/api/Text/LoremIpsum'
     RANDOM_NAME_API = 'https://randommer.io/api/Name'
     PARAGRAPHS_AMOUNT = 1
 
@@ -36,7 +36,7 @@ class Command(BaseCommand):
     def generate_words_dataset(self):
         params = {'loremType': 'normal', 'type': 'paragraphs', 'number': self.PARAGRAPHS_AMOUNT}
         r = requests.get(
-            self.RANDOM_TEXT_APY,
+            self.RANDOM_TEXT_API,
             params=params,
             headers={'X-Api-Key': self.RANDOM_API_KEY}
         )
