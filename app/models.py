@@ -89,7 +89,6 @@ class Like(models.Model):
 
 class TagManager(models.Manager):
     def question_tags(self, question_id):
-        # return question.related.all()
         return Tag.objects.filter(question__pk=question_id)
 
     def get_top_tags(self):

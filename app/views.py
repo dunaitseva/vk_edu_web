@@ -7,7 +7,6 @@ from app.models import Question, Tag, Like, Answer, Profile
 
 
 def load_question_data(question):
-    print(type(question))
     question_item = {
         'question': question,
         'tags': Tag.objects.question_tags(question.pk),
